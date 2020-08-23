@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1997867119066686535}
   - component: {fileID: 7278339489341588062}
   - component: {fileID: 6721507461678749087}
-  - component: {fileID: 5461849162189061194}
+  - component: {fileID: 6785402502268773137}
+  - component: {fileID: 2886338897172999410}
   m_Layer: 5
   m_Name: RoomBtn
   m_TagString: Untagged
@@ -119,8 +120,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7278339489341588062}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &5461849162189061194
+      m_Calls:
+      - m_Target: {fileID: 6785402502268773137}
+        m_TargetAssemblyTypeName: RoomGame, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6785402502268773137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,3 +147,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: 
   roomIcon: {fileID: 0}
+--- !u!114 &2886338897172999410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015300991750209472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

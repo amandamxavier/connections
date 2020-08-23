@@ -22,10 +22,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         {
             for (int i = 0; i <= 9; i++)
             {
-                Room newRoom = Instantiate(roomPrefab).GetComponent<Room>();
-                newRoom.transform.parent = gameObject.transform;
+                RoomGame newRoom = Instantiate(roomPrefab).GetComponent<RoomGame>();
+                newRoom.transform.SetParent(transform, false);
                 //Diferenciação das salas pelos nomes
-                newRoom.roomName = "Room" + i+1;
+                newRoom.roomName = "Room" + i;
                 newRoom.roomIcon = roomIcons[i];
             }
         }

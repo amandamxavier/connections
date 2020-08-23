@@ -24,6 +24,9 @@ public class ConnectionManager : MonoBehaviour
     {
         //Onde ocorre a conexão com o master server
         PhotonNetwork.ConnectUsingSettings();
+
+        //Todos da mesma sala estarão sempre na mesma cena
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     void Update()
@@ -33,7 +36,7 @@ public class ConnectionManager : MonoBehaviour
         pingInfo.text = PhotonNetwork.GetPing().ToString() + "ms";
 
         //Ir para o lobby só se tiver conectado
-        playBtn.interactable = PhotonNetwork.IsConnected;
+        playBtn.interactable = PhotonNetwork.IsConnectedAndReady;
     }
 
     public void Play()
