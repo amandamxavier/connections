@@ -22,7 +22,8 @@ public class WatingRoomManager : MonoBehaviourPunCallbacks
         //Se já há duas pessoas na sala, inicia o jogo
         if(!deuErro && PhotonNetwork.PlayerList.Length == 2)
         {
-            userMessage.text = "Can go to game";
+            CallLoadLevel();
+
         } else if (!deuErro)
         {
             userMessage.text = "Waiting...";
@@ -35,7 +36,12 @@ public class WatingRoomManager : MonoBehaviourPunCallbacks
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         deuErro = true;
-        userMessage.text = "Atention, this room is full. Please try another one";
+        userMessage.text = "This room is full. Please try another one";
+    }
+
+    void CallLoadLevel()
+    {
+        PhotonNetwork.LoadLevel("Game");
     }
 
     public void BackToMenu()

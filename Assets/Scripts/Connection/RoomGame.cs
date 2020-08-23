@@ -14,9 +14,7 @@ public class RoomGame : MonoBehaviourPunCallbacks
 
     //RoomOptions vai definir algumas características das salas
     RoomOptions newRoomOptions = new RoomOptions();
-
     Text userMessage;
-    //int playerCount;
 
     void Start()
     {
@@ -31,7 +29,6 @@ public class RoomGame : MonoBehaviourPunCallbacks
     {
         //Ao ser clicado, chama a função de criar ou se juntar a uma sala
         PhotonNetwork.JoinOrCreateRoom(roomName, newRoomOptions, TypedLobby.Default);
-
         PhotonNetwork.LoadLevel("WaitingRoom");
     }
 
