@@ -2,7 +2,7 @@
 
 Game produced on Unity for Women Game Jam 2020 Edition!
 
-We'll tell stories about persons represented by letters of the LGBTQIA+ by putting the players on their point of view.
+We'll tell stories about people represented by letters of the LGBTQIA+ by putting the players on their point of view.
 
 ## Getting Started
 
