@@ -1,6 +1,6 @@
 # About the project
 
-Game produced on Unity for Women Game Jam 2020 Edition!
+The Codename Connections was made on Unity for Women Game Jam 2020 Edition, with the theme "Together even apart". 
 
 We'll tell stories about people represented by letters of the LGBTQIA+ by putting the players on their point of view.
 
