@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+//Essa classe é responsável por enviar e receber as informações de sincronização do servidor
 public class CharacterNetwork : MonoBehaviourPunCallbacks
 {
     PhotonView pView;
@@ -17,10 +18,12 @@ public class CharacterNetwork : MonoBehaviourPunCallbacks
         Initialize();
     }
 
+    //Configurações iniciais do PhotonView para diferenciar os objetos
     void Initialize()
     {
         if(pView != null)
         {
+            //Uma "gambiarra" para desativar todos os scripts de controle do objeto player se este não for o do client
             if (!pView.IsMine)
             {
                 foreach(MonoBehaviour mb in playerScripts)
@@ -38,12 +41,13 @@ public class CharacterNetwork : MonoBehaviourPunCallbacks
         }
     }
 
-    //Função da classe do Photon que manda e recebe as informações
+    //Função da classe do Photon que manda e recebe as informações através do servidor
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         //Se está mandando informações
         if (stream.IsWriting)
         {
+            //Envia as informações de posição e rotação
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
         }
