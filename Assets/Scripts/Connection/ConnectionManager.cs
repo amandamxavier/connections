@@ -24,9 +24,6 @@ public class ConnectionManager : MonoBehaviour
     {
         //Onde ocorre a conexão com o master server
         PhotonNetwork.ConnectUsingSettings();
-
-        //Todos da mesma sala estarão sempre na mesma cena
-        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     void Update()
