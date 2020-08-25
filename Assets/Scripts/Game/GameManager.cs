@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public GameObject playerPrefab;
 
-    public Transform spawnPoint;
+    public Transform masterSpawnPoint;
+    public Transform otherSpawnPoint;
 
     void Start()
     {
@@ -25,6 +26,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     void SpawnPlayer()
     {
         //Instancia o objeto do player através do PhotonNetwork, para todo mundo
-        GameObject myPlayer = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, spawnPoint.rotation);
+        if (PhotonNetwork.IsMasterClient) {
+            GameObject myPlayer = PhotonNetwork.Instantiate(playerPrefab.name, masterSpawnPoint.position, masterSpawnPoint.rotation);
+        }
+        else {
+            GameObject myPlayer = PhotonNetwork.Instantiate(playerPrefab.name, otherSpawnPoint.position, otherSpawnPoint.rotation);
+        }
     }
 }
