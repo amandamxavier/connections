@@ -27,9 +27,12 @@ We'll publish it when the jam ends :)
 - **Luna Gallo** - Game Designer & Programmer
 - **Larissa Araujo** - Game Designer
 - **Larissa Cristina** - Game Designer & Pixel Artist
+- **Camila Rocha** - Level Designer
 - **Louie** - Programmer
-- **Beatriz Zilberman** - Writer
+- **Beatriz Zilberman**- Writer
 - **Luanna Raira** - 2D Artist
 - **Alexia Cadette** - 2D Artist
 - **Daniela Paladino** - 2D Artist
+- **Dandi** - Pixel & 2D Artist
 - **Anne Arcoíris** - Sound Designer
+- **Jimena** - Sound Designer
