@@ -34,7 +34,7 @@ public class Character : MonoBehaviour {
         xTargetPos = transform.position.x;
     }
     private void Update() {
-        if (!NetworkingPause.IsPaused && enabled) {
+        if (!NetworkingPause.IsPaused) {
             if (Input.GetMouseButtonDown(0) && !UIRegion.AnyContainsMousePos()) {
                 Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 xTargetPos = mouseWorldPos.x; //walk to that position
@@ -56,7 +56,7 @@ public class Character : MonoBehaviour {
         }
     }
     private void FixedUpdate() {
-        if (!NetworkingPause.IsPaused && hasTarget && enabled) {
+        if (!NetworkingPause.IsPaused && hasTarget) {
             float distToTarget = xTargetPos - transform.position.x;
             if (Mathf.Abs(distToTarget) >= targetDistThreshold) { //only move if is far from target
                 rigidbodyRef.MovePosition(transform.position + Vector3.right * maxMovementSpeed * Time.fixedDeltaTime * Mathf.Sign(distToTarget));
