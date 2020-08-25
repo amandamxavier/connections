@@ -7,9 +7,8 @@ using Photon.Pun;
 public class CharacterNetwork : MonoBehaviourPunCallbacks
 {
 
-    public SpriteRenderer spriteRenderer;
-    public Sprite player1Sprite;
-    public Sprite player2Sprite;
+    public Animator p1AnimatedPrefab;
+    public Animator p2AnimatedPrefab;
     public MonoBehaviour[] playerScripts;
 
     void Start()
@@ -32,10 +31,10 @@ public class CharacterNetwork : MonoBehaviourPunCallbacks
             }
 
             if (PhotonNetwork.MasterClient == photonView.Owner) {
-                spriteRenderer.sprite = player1Sprite;//Change to setting animator instead of a static sprite
+                Instantiate(p1AnimatedPrefab, transform);
             }
             else {
-                spriteRenderer.sprite = player2Sprite;
+                Instantiate(p2AnimatedPrefab, transform);
             }
         }
     }
