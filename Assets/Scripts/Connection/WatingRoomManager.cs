@@ -10,6 +10,8 @@ public class WatingRoomManager : MonoBehaviourPunCallbacks
     public Text userMessage, pingText;
     public GameObject goBtn;
     public GameObject backBtn;
+    public string menuSceneName = "Menu";
+    public string gameSceneName = "Game";
 
     bool deuErro;
 
@@ -55,7 +57,7 @@ public class WatingRoomManager : MonoBehaviourPunCallbacks
 
     public void BackToMenu()
     {
-        PhotonNetwork.LoadLevel("Menu");
+        PhotonNetwork.LoadLevel(menuSceneName);
         PhotonNetwork.LeaveRoom();
     }
 
@@ -70,6 +72,6 @@ public class WatingRoomManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void LoadGameScene()
     {
-        PhotonNetwork.LoadLevel("Game");
+        PhotonNetwork.LoadLevel(gameSceneName);
     }
 }

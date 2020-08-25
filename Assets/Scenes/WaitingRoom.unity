@@ -1079,6 +1079,8 @@ MonoBehaviour:
   pingText: {fileID: 189336492}
   goBtn: {fileID: 1416590528}
   backBtn: {fileID: 63470523}
+  menuSceneName: Menu
+  gameSceneName: Chapter1
 --- !u!114 &2019272389
 MonoBehaviour:
   m_ObjectHideFlags: 0
