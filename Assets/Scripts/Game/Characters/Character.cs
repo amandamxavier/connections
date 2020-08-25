@@ -30,34 +30,41 @@ public class Character : MonoBehaviour {
         }
     }
 
+    private void Start() {
+        xTargetPos = transform.position.x;
+    }
     private void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            xTargetPos = mouseWorldPos.x; //walk to that position
-            hasTarget = true;
-            Collider2D clickedCollider = Physics2D.OverlapCircle(mouseWorldPos, inputOverlapRadius); //clicked something?
-            if (clickedCollider != null) {
-                //Try to find interaction component in clickedCollider
+        if (!NetworkingPause.IsPaused) {
+            if (Input.GetMouseButtonDown(0) && !UIRegion.AnyContainsMousePos()) {
+                Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                xTargetPos = mouseWorldPos.x; //walk to that position
+                hasTarget = true;
+                Collider2D clickedCollider = Physics2D.OverlapCircle(mouseWorldPos, inputOverlapRadius); //clicked something?
+                if (clickedCollider != null) {
+                    //Try to find interaction component in clickedCollider
+                }
             }
-        }
 
-        if (isLookingRight && ShouldStartLookingLeft) {
-            isLookingRight = false;
+            if (isLookingRight && ShouldStartLookingLeft) {
+                isLookingRight = false;
+            }
+            else if (!isLookingRight && ShouldStartLookingRight) {
+                isLookingRight = true;
+            }
+            //Set animator bool (IsWalking)
+            //set sprite flipped (isLookingRight)
         }
-        else if (!isLookingRight && ShouldStartLookingRight) {
-            isLookingRight = true;
-        }
-        //Set animator bool (IsWalking)
-        //set sprite flipped (isLookingRight)
     }
     private void FixedUpdate() {
-        float distToTarget = xTargetPos - transform.position.x;
-        if (Mathf.Abs(distToTarget) >= targetDistThreshold) { //only move if is far from target
-            rigidbodyRef.MovePosition(transform.position + Vector3.right * maxMovementSpeed * Time.fixedDeltaTime * Mathf.Sign(distToTarget));
-        }
-        else if (hasTarget) {
-            hasTarget = false;
-            //Trigger interaction
+        if (!NetworkingPause.IsPaused && hasTarget) {
+            float distToTarget = xTargetPos - transform.position.x;
+            if (Mathf.Abs(distToTarget) >= targetDistThreshold) { //only move if is far from target
+                rigidbodyRef.MovePosition(transform.position + Vector3.right * maxMovementSpeed * Time.fixedDeltaTime * Mathf.Sign(distToTarget));
+            }
+            else {
+                hasTarget = false;
+                //Trigger interaction
+            }
         }
     }
 
