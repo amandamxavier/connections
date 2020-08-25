@@ -9,10 +9,20 @@ public class Character : MonoBehaviour {
     public float inputOverlapRadius = 1f;
     public float targetDistThreshold = 0.1f;
     public float speedThreshold = 0.05f;
+    public string uiRegionTypeToIgnoreInput;
 
     private float xTargetPos = 0f;
     private bool hasTarget = false;
     private bool isLookingRight = true;
+    private SpriteRenderer spriteRendererRef;
+    private SpriteRenderer SpriteRendererRef {
+        get {
+            if (spriteRendererRef == null) {
+                spriteRendererRef = GetComponentInChildren<SpriteRenderer>();
+            }
+            return spriteRendererRef;
+        }
+    }
 
     public bool IsWalking {
         get {
@@ -35,7 +45,7 @@ public class Character : MonoBehaviour {
     }
     private void Update() {
         if (!NetworkingPause.IsPaused) {
-            if (Input.GetMouseButtonDown(0) && !UIRegion.AnyContainsMousePos()) {
+            if (Input.GetMouseButtonDown(0) && !UIRegion.ContainsMousePos(uiRegionTypeToIgnoreInput)) {
                 Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 xTargetPos = mouseWorldPos.x; //walk to that position
                 hasTarget = true;
@@ -53,6 +63,7 @@ public class Character : MonoBehaviour {
             }
             //Set animator bool (IsWalking)
             //set sprite flipped (isLookingRight)
+            SpriteRendererRef.flipX = isLookingRight;
         }
     }
     private void FixedUpdate() {
