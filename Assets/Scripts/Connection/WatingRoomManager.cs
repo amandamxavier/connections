@@ -11,7 +11,7 @@ public class WatingRoomManager : MonoBehaviourPunCallbacks
     public GameObject goBtn;
     public GameObject backBtn;
     public string menuSceneName = "Menu";
-    public string gameSceneName = "Game";
+    public string gameSceneName = "Chapter1";
 
     bool deuErro;
 
@@ -21,8 +21,6 @@ public class WatingRoomManager : MonoBehaviourPunCallbacks
         options.MaxPlayers = 2;
 
         goBtn.SetActive(false);
-
-        //PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     void Update()

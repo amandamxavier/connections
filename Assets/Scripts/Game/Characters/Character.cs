@@ -14,7 +14,9 @@ public class Character : MonoBehaviour {
     private float xTargetPos = 0f;
     private bool hasTarget = false;
     private bool isLookingRight = true;
+
     private SpriteRenderer spriteRendererRef;
+
     private SpriteRenderer SpriteRendererRef {
         get {
             if (spriteRendererRef == null) {
@@ -29,11 +31,13 @@ public class Character : MonoBehaviour {
             return Mathf.Abs(rigidbodyRef.velocity.x) >= speedThreshold;
         }
     }
+
     public bool ShouldStartLookingRight {
         get {
             return rigidbodyRef.velocity.x >= speedThreshold;
         }
     }
+
     public bool ShouldStartLookingLeft {
         get {
             return rigidbodyRef.velocity.x <= -speedThreshold;
@@ -43,9 +47,14 @@ public class Character : MonoBehaviour {
     private void Start() {
         xTargetPos = transform.position.x;
     }
+
     private void Update() {
+
         if (!NetworkingPause.IsPaused) {
+
             if (Input.GetMouseButtonDown(0) && !UIRegion.ContainsMousePos(uiRegionTypeToIgnoreInput)) {
+
+                //Pega posição do mouse para andar
                 Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 xTargetPos = mouseWorldPos.x; //walk to that position
                 hasTarget = true;
@@ -61,9 +70,14 @@ public class Character : MonoBehaviour {
             else if (!isLookingRight && ShouldStartLookingRight) {
                 isLookingRight = true;
             }
-            //Set animator bool (IsWalking)
-            //set sprite flipped (isLookingRight)
-            SpriteRendererRef.flipX = isLookingRight;
+
+            if(gameObject != null)
+            {
+                //Set animator bool (IsWalking)
+                //set sprite flipped (isLookingRight)
+                SpriteRendererRef.flipX = isLookingRight;
+            }
+
         }
     }
     private void FixedUpdate() {

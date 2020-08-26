@@ -36,4 +36,17 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         myPlayer.transform.parent = playerContainer;
     }
+
+    public void CallDisconnectGame()
+    {
+        photonView.RPC("DisconnectGame", RpcTarget.All);
+    }
+   
+    [PunRPC]
+    public void DisconnectGame()
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LoadLevel("Menu");
+    }
+
 }

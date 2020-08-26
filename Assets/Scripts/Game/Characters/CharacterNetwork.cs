@@ -39,4 +39,12 @@ public class CharacterNetwork : MonoBehaviourPunCallbacks
         }
     }
 
+    public override void OnLeftRoom()
+    {
+        GameObject.Find("GameManager").GetComponent<GameManager>().CallDisconnectGame();
+    }
+
+
+
+
 }
