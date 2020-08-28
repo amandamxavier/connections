@@ -29,6 +29,9 @@ public class CharacterNetwork : MonoBehaviourPunCallbacks
                     mb.enabled = false;
                 }
             }
+            else {
+                CameraController.target = transform;
+            }
 
             if (PhotonNetwork.MasterClient == photonView.Owner) {
                 Instantiate(p1AnimatedPrefab, transform);
