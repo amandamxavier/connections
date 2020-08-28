@@ -62,7 +62,8 @@ public class Character : MonoBehaviour {
 
         if (!NetworkingPause.IsPaused) {
 
-            if (Input.GetMouseButtonDown(0) && !UIRegion.ContainsMousePos(uiRegionTypeToIgnoreInput)) {
+            if (Input.GetMouseButtonDown(0) && !UIRegion.ContainsMousePos(uiRegionTypeToIgnoreInput))
+            {
 
                 //Pega posição do mouse para andar
                 Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -71,19 +72,34 @@ public class Character : MonoBehaviour {
                 Collider2D clickedCollider = Physics2D.OverlapCircle(mouseWorldPos, inputOverlapRadius, overlapLayerMask);
 
                 //interact with the objects
-                if (clickedCollider != null) { 
-
-                    Interactable interactableObj = clickedCollider.gameObject.GetComponent<Interactable>();
-
-                    //Se o objeto está ao alance e é utilizável
-                    if (interactableObj.isUsable)
+                if (clickedCollider != null)
+                {
+                    //Objeto interativo
+                    if (clickedCollider.gameObject.CompareTag("Interactables"))
                     {
-                        Debug.Log("Guardando objeto " + interactableObj.name + " no inventário");
-                        //Coloca o objeto no inventário e o desativa
-                        inventory.SetItem(interactableObj.key, interactableObj.value);
-                        interactableObj.CollectObj();
+                        Interactable interactableObj = clickedCollider.gameObject.GetComponent<Interactable>();
+
+                        //Se o objeto está ao alance e é utilizável
+                        if (interactableObj.isUsable)
+                        {
+                            //Coloca o objeto no inventário e o desativa
+                            inventory.SetItem(interactableObj.key, interactableObj.value);
+                            interactableObj.CollectObj();
+                        }
                     }
-                } else
+                    //Obstáculos
+                    else if (clickedCollider.gameObject.CompareTag("Obstacles"))
+                    {
+                        Obstacle obstacleObj = clickedCollider.gameObject.GetComponent<Obstacle>();
+
+                        //Se tem o item necessário para destruir aquele obstáculo
+                        if(inventory.GetItem(obstacleObj.id.ToString()))
+                        {
+                            obstacleObj.DestroyObstacle();
+                        }
+                    }   
+                }
+                else
                 {
                     //walk to that position
                     xTargetPos = mouseWorldPos.x;

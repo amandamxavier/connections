@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class CharacterInventory : MonoBehaviour
 {
+    //[ID] - [Item] x [Obstáculo]
+    //[1] - [Carta] x [Ansiedade]
+
+    private void Start()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
     public void SetItem(string _key, string _value)
     {
         if (!PlayerPrefs.HasKey(_key))
@@ -13,11 +21,8 @@ public class CharacterInventory : MonoBehaviour
         }
     }
 
-    public void GetItem(string _key, string _value)
+    public bool GetItem(string _key)
     {
-        if (PlayerPrefs.HasKey(_key))
-        {
-            PlayerPrefs.GetString(_key, _value);
-        }
+        return PlayerPrefs.HasKey(_key);
     }
 }

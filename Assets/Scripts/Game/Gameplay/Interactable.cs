@@ -13,7 +13,6 @@ public class Interactable : MonoBehaviour
 
     [Header("Visual Feedback")]
     public GameObject indicator;
-    //public float activationRadius;
 
     private void OnMouseOver()
     {
