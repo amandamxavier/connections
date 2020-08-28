@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 280570111
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -908837305518807499, guid: 2323c29d4e225a540bfe2ca5b0ef754a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -119,11 +119,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbodyRef: {fileID: -7890231684363260447}
-  interactablesLayer:
-    serializedVersion: 2
-    m_Bits: 1024
   maxMovementSpeed: 1
   inputOverlapRadius: 0.1
+  overlapLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
   targetDistThreshold: 0.1
   speedThreshold: 0.05
   uiRegionTypeToIgnoreInput: IgnoreInput

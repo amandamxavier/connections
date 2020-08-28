@@ -5,9 +5,9 @@ using UnityEngine;
 public class Character : MonoBehaviour {
 
     public Rigidbody2D rigidbodyRef;
-    public LayerMask interactablesLayer;
     public float maxMovementSpeed = 1f;
     public float inputOverlapRadius;
+    public LayerMask overlapLayerMask;
     public float targetDistThreshold = 0.1f;
     public float speedThreshold = 0.05f;
     public string uiRegionTypeToIgnoreInput;
@@ -68,27 +68,19 @@ public class Character : MonoBehaviour {
                 Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
                 //clicked something?
-                Collider2D clickedCollider = Physics2D.OverlapCircle(mouseWorldPos, inputOverlapRadius);
+                Collider2D clickedCollider = Physics2D.OverlapCircle(mouseWorldPos, inputOverlapRadius, overlapLayerMask);
 
                 //interact with the objects
                 if (clickedCollider != null) { 
 
-                    Debug.Log("Clicked " + clickedCollider.gameObject.name + " on layer " + clickedCollider.gameObject.layer);
-
-                    //Se clicou em um objeto interativo
-                    if (clickedCollider.gameObject.layer == interactablesLayer)
+                    Debug.Log("Clicked " + clickedCollider.gameObject.name);
+                    Interactable interactableObj = clickedCollider.gameObject.GetComponent<Interactable>();
+                    //Se o objeto está ao alance e é utilizável
+                    if (interactableObj.onReach && interactableObj.isUsable)
                     {
-                        Debug.Log("Entrou aqui");
-
-                        Debug.Log("Clicked " + clickedCollider.gameObject.name);
-                        Interactable interactableObj = clickedCollider.gameObject.GetComponent<Interactable>();
-                        //Se o objeto está ao alance e é utilizável
-                        if (interactableObj.onReach && interactableObj.isUsable)
-                        {
-                            //Coloca o objeto no inventário e o desativa
-                            inventory.SetItem(interactableObj.key, interactableObj.value);
-                            interactableObj.CollectObj();
-                        }
+                        //Coloca o objeto no inventário e o desativa
+                        inventory.SetItem(interactableObj.key, interactableObj.value);
+                        interactableObj.CollectObj();
                     }
                 } else
                 {

@@ -98,7 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbodyRef: {fileID: 4688701410686940028}
   maxMovementSpeed: 1
-  inputOverlapRadius: 1
+  inputOverlapRadius: 0.1
+  overlapLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
   targetDistThreshold: 0.1
   speedThreshold: 0.05
   uiRegionTypeToIgnoreInput: IgnoreInput
