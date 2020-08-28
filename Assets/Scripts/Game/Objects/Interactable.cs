@@ -5,7 +5,6 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     [Header("Interactivity")]
-    public bool onReach;
     public bool isUsable;
 
     [Header("PlayerPrefs Info")]
@@ -14,41 +13,21 @@ public class Interactable : MonoBehaviour
 
     [Header("Visual Feedback")]
     public GameObject indicator;
-    public LayerMask playerLayer;
-    public float activationRadius;
+    //public float activationRadius;
 
-    void Update()
-    {
-        if(Physics2D.OverlapCircle(transform.position, activationRadius, playerLayer))
-        {
-            ShowIndicator();
-            onReach = true;
-        } else
-        {
-            HideIndicator();
-            onReach = false;
-        }
-    }
-
-    void ShowIndicator()
+    private void OnMouseOver()
     {
         indicator.gameObject.SetActive(true);
     }
 
-    void HideIndicator()
+    private void OnMouseExit()
     {
         indicator.gameObject.SetActive(false);
     }
 
     public void CollectObj()
     {
-        gameObject.SetActive(false);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, activationRadius);
-                        
+        isUsable = false;
+        indicator.GetComponent<SpriteRenderer>().color = Color.gray;
     }
 }

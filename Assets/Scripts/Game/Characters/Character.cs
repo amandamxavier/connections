@@ -73,11 +73,12 @@ public class Character : MonoBehaviour {
                 //interact with the objects
                 if (clickedCollider != null) { 
 
-                    Debug.Log("Clicked " + clickedCollider.gameObject.name);
                     Interactable interactableObj = clickedCollider.gameObject.GetComponent<Interactable>();
+
                     //Se o objeto está ao alance e é utilizável
-                    if (interactableObj.onReach && interactableObj.isUsable)
+                    if (interactableObj.isUsable)
                     {
+                        Debug.Log("Guardando objeto " + interactableObj.name + " no inventário");
                         //Coloca o objeto no inventário e o desativa
                         inventory.SetItem(interactableObj.key, interactableObj.value);
                         interactableObj.CollectObj();
