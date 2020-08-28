@@ -5,8 +5,9 @@ using UnityEngine;
 public class Character : MonoBehaviour {
 
     public Rigidbody2D rigidbodyRef;
+    public LayerMask interactablesLayer;
     public float maxMovementSpeed = 1f;
-    public float inputOverlapRadius = 1f;
+    public float inputOverlapRadius;
     public float targetDistThreshold = 0.1f;
     public float speedThreshold = 0.05f;
     public string uiRegionTypeToIgnoreInput;
@@ -15,6 +16,7 @@ public class Character : MonoBehaviour {
     private bool hasTarget = false;
     private bool isLookingRight = true;
 
+    private CharacterInventory inventory;
     private SpriteRenderer spriteRendererRef;
 
     private SpriteRenderer SpriteRendererRef {
@@ -46,6 +48,14 @@ public class Character : MonoBehaviour {
 
     private void Start() {
         xTargetPos = transform.position.x;
+        inventory = GetComponent<CharacterInventory>();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(mouseWorldPos, inputOverlapRadius);
     }
 
     private void Update() {
@@ -56,11 +66,35 @@ public class Character : MonoBehaviour {
 
                 //Pega posição do mouse para andar
                 Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                xTargetPos = mouseWorldPos.x; //walk to that position
-                hasTarget = true;
-                Collider2D clickedCollider = Physics2D.OverlapCircle(mouseWorldPos, inputOverlapRadius); //clicked something?
-                if (clickedCollider != null) {
-                    //Try to find interaction component in clickedCollider
+
+                //clicked something?
+                Collider2D clickedCollider = Physics2D.OverlapCircle(mouseWorldPos, inputOverlapRadius);
+
+                //interact with the objects
+                if (clickedCollider != null) { 
+
+                    Debug.Log("Clicked " + clickedCollider.gameObject.name + " on layer " + clickedCollider.gameObject.layer);
+
+                    //Se clicou em um objeto interativo
+                    if (clickedCollider.gameObject.layer == interactablesLayer)
+                    {
+                        Debug.Log("Entrou aqui");
+
+                        Debug.Log("Clicked " + clickedCollider.gameObject.name);
+                        Interactable interactableObj = clickedCollider.gameObject.GetComponent<Interactable>();
+                        //Se o objeto está ao alance e é utilizável
+                        if (interactableObj.onReach && interactableObj.isUsable)
+                        {
+                            //Coloca o objeto no inventário e o desativa
+                            inventory.SetItem(interactableObj.key, interactableObj.value);
+                            interactableObj.CollectObj();
+                        }
+                    }
+                } else
+                {
+                    //walk to that position
+                    xTargetPos = mouseWorldPos.x;
+                    hasTarget = true;
                 }
             }
 
