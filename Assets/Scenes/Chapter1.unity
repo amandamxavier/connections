@@ -5094,7 +5094,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1774691111}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7667,8 +7668,8 @@ GameObject:
   - component: {fileID: 1882726782}
   - component: {fileID: 1882726785}
   - component: {fileID: 1882726784}
-  - component: {fileID: 1882726783}
   - component: {fileID: 1882726786}
+  - component: {fileID: 1882726783}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -7705,7 +7706,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1882726781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 468b0faa7cbcd5c4d9c19ed1cc732b58, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b1b82722d9a84045826d4535743ad32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1882726784
@@ -7751,7 +7752,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1882726783}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PauseButton, Assembly-CSharp
         m_MethodName: TogglePause
         m_Mode: 1
@@ -8241,7 +8242,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1974789722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639ea6f4b0f17134da8e78c425604017, type: 3}
+  m_Script: {fileID: 11500000, guid: 462f7f9d607858444acb6ef6db45a146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   invokeOnStart: 0
