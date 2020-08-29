@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Interactables
+  - Obstacles
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - 
   - Managers
   - Player
-  - 
-  - 
+  - Interactables
+  - Obstacles
   - 
   - 
   - 
@@ -40,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Interactables
+    uniqueID: 258518167
+    locked: 0
+  - name: Character
+    uniqueID: 280570111
     locked: 0
