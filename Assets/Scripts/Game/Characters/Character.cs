@@ -51,6 +51,7 @@ public class Character : MonoBehaviour {
         inventory = GetComponent<CharacterInventory>();
     }
 
+    //Debug da posição do mouse apenas
     private void OnDrawGizmos()
     {
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -64,7 +65,6 @@ public class Character : MonoBehaviour {
 
             if (Input.GetMouseButtonDown(0) && !UIRegion.ContainsMousePos(uiRegionTypeToIgnoreInput))
             {
-
                 //Pega posição do mouse para andar
                 Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -120,9 +120,9 @@ public class Character : MonoBehaviour {
                 //set sprite flipped (isLookingRight)
                 SpriteRendererRef.flipX = isLookingRight;
             }
-
         }
     }
+
     private void FixedUpdate() {
         if (!NetworkingPause.IsPaused && hasTarget) {
             float distToTarget = xTargetPos - transform.position.x;

@@ -124,12 +124,6 @@ MonoBehaviour:
   overlapLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  interacatblesLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  obstaclesLayer:
-    serializedVersion: 2
-    m_Bits: 2048
   targetDistThreshold: 0.1
   speedThreshold: 0.05
   uiRegionTypeToIgnoreInput: IgnoreInput
@@ -192,3 +186,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e7feae723f69c40b5931e386d7b85c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hud: {fileID: 0}

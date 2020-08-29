@@ -10,7 +10,7 @@ public class Obstacle : MonoBehaviour
 
     public void DestroyObstacle()
     {
-        Debug.Log("Destroy obstacle");
+        //Deixa transparentezinho e desativa o collider pra poder passar
         gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0.3f);
         objCollider.SetActive(false);
     }
