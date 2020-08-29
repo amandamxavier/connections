@@ -11,14 +11,15 @@ public class Character : MonoBehaviour {
     public float targetDistThreshold = 0.1f;
     public float speedThreshold = 0.05f;
     public string uiRegionTypeToIgnoreInput;
+    public string walkAnimParameterName = "IsWalking";
 
     private float xTargetPos = 0f;
     private bool hasTarget = false;
     private bool isLookingRight = true;
 
     private CharacterInventory inventory;
-    private SpriteRenderer spriteRendererRef;
 
+    private SpriteRenderer spriteRendererRef;
     private SpriteRenderer SpriteRendererRef {
         get {
             if (spriteRendererRef == null) {
@@ -27,19 +28,26 @@ public class Character : MonoBehaviour {
             return spriteRendererRef;
         }
     }
+    private Animator animatorRef;
+    private Animator AnimatorRef {
+        get {
+            if (animatorRef == null) {
+                animatorRef = GetComponentInChildren<Animator>();
+            }
+            return animatorRef;
+        }
+    }
 
     public bool IsWalking {
         get {
             return Mathf.Abs(rigidbodyRef.velocity.x) >= speedThreshold;
         }
     }
-
     public bool ShouldStartLookingRight {
         get {
             return rigidbodyRef.velocity.x >= speedThreshold;
         }
     }
-
     public bool ShouldStartLookingLeft {
         get {
             return rigidbodyRef.velocity.x <= -speedThreshold;
@@ -116,8 +124,7 @@ public class Character : MonoBehaviour {
 
             if(gameObject != null)
             {
-                //Set animator bool (IsWalking)
-                //set sprite flipped (isLookingRight)
+                AnimatorRef.SetBool(walkAnimParameterName, IsWalking);
                 SpriteRendererRef.flipX = isLookingRight;
             }
         }
@@ -127,10 +134,11 @@ public class Character : MonoBehaviour {
         if (!NetworkingPause.IsPaused && hasTarget) {
             float distToTarget = xTargetPos - transform.position.x;
             if (Mathf.Abs(distToTarget) >= targetDistThreshold) { //only move if is far from target
-                rigidbodyRef.MovePosition(transform.position + Vector3.right * maxMovementSpeed * Time.fixedDeltaTime * Mathf.Sign(distToTarget));
+                rigidbodyRef.velocity = Vector3.right * maxMovementSpeed * Mathf.Sign(distToTarget);
             }
             else {
                 hasTarget = false;
+                rigidbodyRef.velocity = Vector3.zero;
                 //Trigger interaction
             }
         }

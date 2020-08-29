@@ -1,13 +1,25 @@
 fileFormatVersion: 2
-guid: 2b07904b1066ce145aa43840b431c2cb
+guid: 3a98ee05695da3e44838c9da3a500662
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6234176133674011997
-    second: Base_0
+      213: 5831523805222920389
+    second: anxiety_0
   - first:
-      213: -1790145400590651902
-    second: Base_1
+      213: 8495938904925594279
+    second: anxiety_1
+  - first:
+      213: 6686202103660210750
+    second: anxiety_2
+  - first:
+      213: 4191349800011262501
+    second: anxiety_3
+  - first:
+      213: -8928406075352282454
+    second: anxiety_4
+  - first:
+      213: 7906867968470113041
+    second: anxiety_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -50,8 +62,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 6
-  spritePivot: {x: 0, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -119,43 +131,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Base_0
+      name: anxiety_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 19
-        width: 770
-        height: 290
-      alignment: 6
+        y: 130
+        width: 120
+        height: 130
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5d8bdad92e348650800000000000000
-      internalID: 6234176133674011997
+      spriteID: 5c0eb8d010cbde050800000000000000
+      internalID: 5831523805222920389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base_1
+      name: anxiety_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 770
-        height: 19
-      alignment: 6
+        x: 120
+        y: 130
+        width: 120
+        height: 130
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20eae752e302827e0800000000000000
-      internalID: -1790145400590651902
+      spriteID: 7a2e28dab63a7e570800000000000000
+      internalID: 8495938904925594279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anxiety_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 130
+        width: 120
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3ae22563692acc50800000000000000
+      internalID: 6686202103660210750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anxiety_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 120
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a6317bf6aaa2a30800000000000000
+      internalID: 4191349800011262501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anxiety_4
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 120
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa003caafde71480800000000000000
+      internalID: -8928406075352282454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anxiety_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 120
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11b53926686dabd60800000000000000
+      internalID: 7906867968470113041
       vertices: []
       indices: 
       edges: []
