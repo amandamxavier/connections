@@ -6,7 +6,7 @@ public class TriggerLocalization : MonoBehaviour
 {
     public int objNecessario;
 
-    bool localizationSent = false;
+    public bool localizationSent = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
