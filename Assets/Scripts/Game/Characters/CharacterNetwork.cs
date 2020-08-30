@@ -7,8 +7,8 @@ using Photon.Pun;
 public class CharacterNetwork : MonoBehaviourPunCallbacks
 {
 
-    public Animator p1AnimatedPrefab;
-    public Animator p2AnimatedPrefab;
+    public Animator p1Animator;
+    public Animator p2Animator;
     public MonoBehaviour[] playerScripts;
 
     void Start()
@@ -34,10 +34,12 @@ public class CharacterNetwork : MonoBehaviourPunCallbacks
             }
 
             if (PhotonNetwork.MasterClient == photonView.Owner) {
-                Instantiate(p1AnimatedPrefab, transform);
+                p1Animator.gameObject.SetActive(true);
+                p2Animator.gameObject.SetActive(false);
             }
             else {
-                Instantiate(p2AnimatedPrefab, transform);
+                p1Animator.gameObject.SetActive(false);
+                p2Animator.gameObject.SetActive(true);
             }
         }
     }
