@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7084056927586155082}
   - component: {fileID: 9171536606023265312}
   - component: {fileID: 6978779195587761726}
-  - component: {fileID: -8173283085827847588}
   m_Layer: 9
   m_Name: Character
   m_TagString: Untagged
@@ -71,7 +70,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.16, y: 0.36}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -103,8 +102,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   targetDistThreshold: 0.1
-  speedThreshold: 0.05
+  speedThreshold: 0.01
   uiRegionTypeToIgnoreInput: IgnoreInput
+  walkAnimParameterName: IsWalking
 --- !u!114 &7084056927586155082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,15 +159,3 @@ MonoBehaviour:
   p2AnimatedPrefab: {fileID: 2878846709423167607, guid: a504a034223a70a489f6bac7b7e2b223, type: 3}
   playerScripts:
   - {fileID: 4688701410686940031}
---- !u!114 &-8173283085827847588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4688701410686939905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b511d4705e869b458a13ccf9bc570d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

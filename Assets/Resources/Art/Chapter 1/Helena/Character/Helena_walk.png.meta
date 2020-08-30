@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 2b07904b1066ce145aa43840b431c2cb
+guid: 6f85712f0e2c41640ab8e0950c66c109
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6234176133674011997
-    second: Base_0
+      213: -4852485337242194035
+    second: Helena_walk_0
   - first:
-      213: -1790145400590651902
-    second: Base_1
+      213: -3597031105844712981
+    second: Helena_walk_1
+  - first:
+      213: 7772616788961191604
+    second: Helena_walk_2
+  - first:
+      213: 505908230476848251
+    second: Helena_walk_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -50,8 +56,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 6
-  spritePivot: {x: 0, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -119,43 +125,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Base_0
+      name: Helena_walk_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 19
-        width: 770
-        height: 290
-      alignment: 6
+        y: 75
+        width: 32
+        height: 75
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5d8bdad92e348650800000000000000
-      internalID: 6234176133674011997
+      spriteID: d8f23eb9b4288acb0800000000000000
+      internalID: -4852485337242194035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base_1
+      name: Helena_walk_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 770
-        height: 19
-      alignment: 6
+        x: 32
+        y: 75
+        width: 32
+        height: 75
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20eae752e302827e0800000000000000
-      internalID: -1790145400590651902
+      spriteID: be968126447c41ec0800000000000000
+      internalID: -3597031105844712981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Helena_walk_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 75
+        width: 32
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b6e449d9c1eddb60800000000000000
+      internalID: 7772616788961191604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Helena_walk_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7cd48eead8550700800000000000000
+      internalID: 505908230476848251
       vertices: []
       indices: 
       edges: []
