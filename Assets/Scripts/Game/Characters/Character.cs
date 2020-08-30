@@ -19,7 +19,6 @@ public class Character : MonoBehaviour {
     private bool hasTarget = false;
     private bool isLookingRight = true;
     private Interactable targetInteractable;
-    private Obstacle targetObstacle;
 
     private CharacterInventory inventory;
 
@@ -109,7 +108,10 @@ public class Character : MonoBehaviour {
                 xTargetPos = mouseWorldPos.x;
                 hasTarget = true;
                 targetInteractable = interactableObj;
-                targetObstacle = obstacleObj;
+                //Se tem o item necessário para destruir aquele obstáculo
+                if (obstacleObj != null && inventory.GetItem(obstacleObj.id.ToString())) {
+                    obstacleObj.DestroyObstacle();
+                }
             }
 
             if (isLookingRight && ShouldStartLookingLeft) {
@@ -144,12 +146,7 @@ public class Character : MonoBehaviour {
                     inventory.SetItem(targetInteractable.key, targetInteractable.value);
                     targetInteractable.CollectObj();
                 }
-                //Se tem o item necessário para destruir aquele obstáculo
-                if (targetObstacle != null && inventory.GetItem(targetObstacle.id.ToString())) {
-                    targetObstacle.DestroyObstacle();
-                }
                 targetInteractable = null;
-                targetObstacle = null;
             }
         }
     }

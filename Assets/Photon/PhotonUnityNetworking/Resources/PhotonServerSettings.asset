@@ -41,6 +41,8 @@ MonoBehaviour:
   - UnpauseGame
   - CallDisconnectGame
   - DisconnectGame
+  - RPCDestroyObstacle
+  - Send
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

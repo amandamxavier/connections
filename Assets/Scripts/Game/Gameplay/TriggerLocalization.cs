@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
-public class TriggerLocalization : MonoBehaviour
+public class TriggerLocalization : MonoBehaviourPun
 {
     public int objNecessario;
 
@@ -19,8 +21,13 @@ public class TriggerLocalization : MonoBehaviour
             {
                 Debug.Log("Trigger interaction!");
                 Debug.Log("Send localization");
-                localizationSent = true;
+                photonView.RPC("Send", RpcTarget.All);
             }
         }
+    }
+
+    [PunRPC]
+    private void Send() {
+        localizationSent = true;
     }
 }

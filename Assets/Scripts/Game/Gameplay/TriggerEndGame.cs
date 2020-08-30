@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerEndGame : MonoBehaviour
-{
+public class TriggerEndGame : MonoBehaviourPun {
     public int[] objsNecesarios;
     bool gameEnded = false;
+    public string chapter1EndSceneName;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,8 +19,13 @@ public class TriggerEndGame : MonoBehaviour
             {
                 Debug.Log("Trigger interaction!");
                 Debug.Log("End Game");
-                gameEnded = true;
+                PhotonNetwork.LoadLevel(chapter1EndSceneName);
             }
         }
+    }
+
+    [PunRPC]
+    private void Send() {
+        gameEnded = true;
     }
 }
