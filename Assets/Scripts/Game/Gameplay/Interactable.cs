@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+
+    public static Interactable hovered = null;
+
     [Header("Interactivity")]
     public bool isUsable;
 
@@ -14,14 +17,10 @@ public class Interactable : MonoBehaviour
     [Header("Visual Feedback")]
     public GameObject indicator;
 
-    private void OnMouseOver()
-    {
-        indicator.gameObject.SetActive(true);
-    }
-
-    private void OnMouseExit()
-    {
-        indicator.gameObject.SetActive(false);
+    private void Update() {
+        if (indicator != null) {
+            indicator.SetActive(hovered == this);
+        }
     }
 
     public void CollectObj()

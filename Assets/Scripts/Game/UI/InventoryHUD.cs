@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class InventoryHUD : MonoBehaviour
 {
+
+    public static InventoryHUD instance;
+    private void Awake() {
+        instance = this;
+    }
+
     public Sprite[] sprItens;
     public GameObject itemPrefab;
 

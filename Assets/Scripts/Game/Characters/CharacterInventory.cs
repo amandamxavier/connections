@@ -11,8 +11,6 @@ public class CharacterInventory : MonoBehaviour
     //[4] - [Patins] x [Janela] 
     //[5] - [Celular] x [Localização]
 
-    public InventoryHUD hud;
-
     TriggerLocalization localization;
 
     void Start()
@@ -25,7 +23,7 @@ public class CharacterInventory : MonoBehaviour
     //Recebe localização quando for enviada e ter o celular
     private void Update()
     {
-        if (localization.localizationSent)
+        if (localization != null && localization.localizationSent)
         {
             if (GetItem("5"))
             {
@@ -41,7 +39,7 @@ public class CharacterInventory : MonoBehaviour
         {
             PlayerPrefs.SetString(_key, _value);
             //Passa para o HUD com a chave do item
-            hud.AddItem(int.Parse(_key));
+            InventoryHUD.instance.AddItem(int.Parse(_key));
         }
     }
 

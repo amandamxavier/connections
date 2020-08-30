@@ -12,10 +12,14 @@ public class Character : MonoBehaviour {
     public float speedThreshold = 0.05f;
     public string uiRegionTypeToIgnoreInput;
     public string walkAnimParameterName = "IsWalking";
+    public float minReachHeight = -0.2f;
+    public float maxReachHeight = 0.3f;
 
     private float xTargetPos = 0f;
     private bool hasTarget = false;
     private bool isLookingRight = true;
+    private Interactable targetInteractable;
+    private Obstacle targetObstacle;
 
     private CharacterInventory inventory;
 
@@ -65,54 +69,47 @@ public class Character : MonoBehaviour {
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(mouseWorldPos, inputOverlapRadius);
+        Gizmos.color = Color.yellow;
+        Vector3 reachCenter = new Vector3(transform.position.x, transform.position.y + (maxReachHeight + minReachHeight) / 2f, transform.position.z);
+        Gizmos.DrawWireCube(reachCenter, new Vector3(10f, maxReachHeight - minReachHeight, 1f));
     }
 
     private void Update() {
 
         if (!NetworkingPause.IsPaused) {
 
-            if (Input.GetMouseButtonDown(0) && !UIRegion.ContainsMousePos(uiRegionTypeToIgnoreInput))
-            {
-                //Pega posição do mouse para andar
-                Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //Pega posição do mouse para andar
+            Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                //clicked something?
-                Collider2D clickedCollider = Physics2D.OverlapCircle(mouseWorldPos, inputOverlapRadius, overlapLayerMask);
+            //clicked something?
+            Collider2D clickedCollider = Physics2D.OverlapCircle(mouseWorldPos, inputOverlapRadius, overlapLayerMask);
+            Interactable interactableObj = null;
+            Obstacle obstacleObj = null;
 
-                //interact with the objects
-                if (clickedCollider != null)
-                {
+            if (clickedCollider != null) {
+                float deltaY = clickedCollider.transform.position.y - transform.position.y;
+                //only objects within reach
+                if (deltaY >= minReachHeight && deltaY <= maxReachHeight) {
                     //Objeto interativo
-                    if (clickedCollider.gameObject.CompareTag("Interactables"))
-                    {
-                        Interactable interactableObj = clickedCollider.gameObject.GetComponent<Interactable>();
-
-                        //Se o objeto está ao alance e é utilizável
-                        if (interactableObj.isUsable)
-                        {
-                            //Coloca o objeto no inventário e o desativa
-                            inventory.SetItem(interactableObj.key, interactableObj.value);
-                            interactableObj.CollectObj();
-                        }
+                    if (clickedCollider.gameObject.CompareTag("Interactables")) {
+                        interactableObj = clickedCollider.GetComponent<Interactable>();
                     }
                     //Obstáculos
-                    else if (clickedCollider.gameObject.CompareTag("Obstacles"))
-                    {
-                        Obstacle obstacleObj = clickedCollider.gameObject.GetComponent<Obstacle>();
+                    else if (clickedCollider.gameObject.CompareTag("Obstacles")) {
+                        obstacleObj = clickedCollider.GetComponent<Obstacle>();
+                    }
 
-                        //Se tem o item necessário para destruir aquele obstáculo
-                        if(inventory.GetItem(obstacleObj.id.ToString()))
-                        {
-                            obstacleObj.DestroyObstacle();
-                        }
-                    }   
                 }
-                else
-                {
-                    //walk to that position
-                    xTargetPos = mouseWorldPos.x;
-                    hasTarget = true;
-                }
+            }
+            Interactable.hovered = interactableObj;
+
+            //interact with the objects
+            if (Input.GetMouseButtonDown(0) && !UIRegion.ContainsMousePos(uiRegionTypeToIgnoreInput)) {
+                //walk to that position
+                xTargetPos = mouseWorldPos.x;
+                hasTarget = true;
+                targetInteractable = interactableObj;
+                targetObstacle = obstacleObj;
             }
 
             if (isLookingRight && ShouldStartLookingLeft) {
@@ -124,7 +121,7 @@ public class Character : MonoBehaviour {
 
             if(gameObject != null)
             {
-                AnimatorRef.SetBool(walkAnimParameterName, IsWalking);
+                AnimatorRef?.SetBool(walkAnimParameterName, IsWalking);
                 SpriteRendererRef.flipX = isLookingRight;
             }
         }
@@ -139,7 +136,20 @@ public class Character : MonoBehaviour {
             else {
                 hasTarget = false;
                 rigidbodyRef.velocity = Vector3.zero;
+
                 //Trigger interaction
+                //Se o objeto está ao alance e é utilizável
+                if (targetInteractable != null && targetInteractable.isUsable) {
+                    //Coloca o objeto no inventário e o desativa
+                    inventory.SetItem(targetInteractable.key, targetInteractable.value);
+                    targetInteractable.CollectObj();
+                }
+                //Se tem o item necessário para destruir aquele obstáculo
+                if (targetObstacle != null && inventory.GetItem(targetObstacle.id.ToString())) {
+                    targetObstacle.DestroyObstacle();
+                }
+                targetInteractable = null;
+                targetObstacle = null;
             }
         }
     }
