@@ -7,6 +7,7 @@ public class NetworkingPause : MonoBehaviourPunCallbacks {
 
     public static List<NetworkingPause> instanceList = new List<NetworkingPause>();
     private void Awake() {
+        IsPaused = false;
         instanceList.Add(this);
     }
     private void OnDestroy() {
