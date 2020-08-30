@@ -25,7 +25,7 @@ We'll publish it when the jam ends :)
 
 - **Amanda Martins** - Game Producer / Digital & UI Designer
 - **Luna Gallo** - Game Designer / Programmer
-- **Larissa "Mewmew" Cristina** - Game Designer / Pixel Artist
+- **Larissa Cristina** - Game Designer / Pixel Artist
 - **Larissa Araujo** - Game Designer
 - **Camila Rocha** - Level Designer
 - **Gabi Mizuki** - UI Designer
