@@ -23,16 +23,17 @@ We'll publish it when the jam ends :)
 
 ## Authors
 
-- **Amanda Martins** - Game Producer & Programmer
-- **Luna Gallo** - Game Designer & Programmer
+- **Amanda Martins** - Game Producer / Digital & UI Designer
+- **Luna Gallo** - Game Designer / Programmer
+- **Larissa "Mewmew" Cristina** - Game Designer / Pixel Artist
 - **Larissa Araujo** - Game Designer
-- **Larissa Cristina** - Game Designer & Pixel Artist
 - **Camila Rocha** - Level Designer
+- **Gabi Mizuki** - UI Designer
 - **Louie** - Programmer
-- **Beatriz Zilberman**- Writer
+- **Beatriz Zilberman -** Writer
 - **Luanna Raira** - 2D Artist
 - **Alexia Cadette** - 2D Artist
 - **Daniela Paladino** - 2D Artist
-- **Dandi** - Pixel & 2D Artist
-- **Anne Arcoíris** - Sound Designer
-- **Jimena** - Sound Designer
+- **Dandi** - Pixel Artist
+- **Anne Arcoíris** - Composer / Sound Designer
+- **Jimena** - Composer / Sound Designer
