@@ -7,7 +7,8 @@ using Photon.Realtime;
 
 public class WatingRoomManager : MonoBehaviourPunCallbacks
 {
-    public Text userMessage, pingText;
+    public GameObject readyObj;
+    public Text pingText;
     public GameObject goBtn;
     public GameObject backBtn;
     public string menuSceneName = "Menu";
@@ -28,7 +29,7 @@ public class WatingRoomManager : MonoBehaviourPunCallbacks
         //Se já há duas pessoas na sala, inicia o jogo
         if(!deuErro && PhotonNetwork.PlayerList.Length == 2)
         {
-            userMessage.text = "Game is ready";
+            readyObj.SetActive(true);
 
             //Apenas quem criou a sala pode dar GO no jogo
             if (PhotonNetwork.IsMasterClient)
@@ -38,9 +39,6 @@ public class WatingRoomManager : MonoBehaviourPunCallbacks
 
             //goBtn.SetActive(true);
 
-        } else if (!deuErro)
-        {
-            userMessage.text = "Waiting...";
         }
 
         pingText.text = PhotonNetwork.GetPing().ToString();
@@ -50,7 +48,6 @@ public class WatingRoomManager : MonoBehaviourPunCallbacks
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         deuErro = true;
-        userMessage.text = "This room is full. Please try another one";
     }
 
     public void BackToMenu()
