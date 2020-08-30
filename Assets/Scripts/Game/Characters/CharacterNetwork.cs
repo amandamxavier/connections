@@ -30,7 +30,7 @@ public class CharacterNetwork : MonoBehaviourPunCallbacks
                 }
             }
             else {
-                CameraController.target = transform;
+                //CameraController.target = transform;
             }
 
             if (PhotonNetwork.MasterClient == photonView.Owner) {

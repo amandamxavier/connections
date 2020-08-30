@@ -6,6 +6,9 @@ public class CharacterInventory : MonoBehaviour
 {
     //[ID] - [Item] x [Obstáculo]
     //[1] - [Carta] x [Ansiedade]
+    //[2] - [Celular] x [Porta 1] [Porta 2]
+    //[3] - [Corda] x [Janela]
+    //[4] - [Patins] x [Janela]
 
     public InventoryHUD hud;
 

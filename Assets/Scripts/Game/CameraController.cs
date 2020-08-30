@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    public static Transform target;
+    public Transform target;
     private void OnDestroy() {
         target = null;
     }
