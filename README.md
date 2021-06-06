@@ -1,27 +1,33 @@
-# About the project
+<p align="center">
+  <img src="https://img.shields.io/github/repo-size/AmanditaDev/terragaia?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=for-the-badge&logo=unity">
+  <img src="https://img.shields.io/github/license/AmanditaDev/terragaia?style=for-the-badge">
+</p>
 
-The Codename Connections was made on Unity for Women Game Jam 2020 Edition, with the theme "Together even apart". 
+<p align="center">
+  <img src="/logo.png" alt="">
+</p>
 
-We'll tell stories about people represented by letters of the LGBTQIA+ by putting the players on their point of view.
+## 🌈 Overview
 
-## Getting Started
+> We'll tell stories about people represented by letters of the LGBTQIA+ by putting the players on their point of view.
+
+## 📚 About the project
+
+Connections was made for Women Game Jam 2020 Edition, with the theme "Together even apart". 
 
 **Genre:** Drama and Point&Click;<br>
 **Style:** Side-View and Pixel Art;<br>
-**Engine:** Unity 2D;<br>
+**Engine:** Unity;<br>
 **Services:** Photon;<br>
-**Platforms:** HTML5 and Android;<br>
-**Game modes:** Single-player, local and online multiplayer for 2 players;
+**Platforms:** HTML5;<br>
+**Game modes:** Online multiplayer for 2 players.
 
-### How to play
+## 🕹️ How to play
 
-We'll deliver an android & iOS version, and also a HTML5 version via itch.io when the jam ends ^^ 
+We've published a demo on itch.io, check it out [here](https://amanditadev.itch.io/connections).
 
-### GDD
-
-We'll publish it when the jam ends :)
-
-## Authors
+## 👋 Authors
 
 - **Amanda Martins** - Game Producer / Digital & UI Designer
 - **Luna Gallo** - Game Designer / Programmer
@@ -37,3 +43,7 @@ We'll publish it when the jam ends :)
 - **Dandi** - Pixel Artist
 - **Anne Arcoíris** - Composer / Sound Designer
 - **Jimena** - Composer / Sound Designer
+
+## 📜 License
+
+This project is under license. Click [here](LICENSE.md) for more details.
