@@ -25,7 +25,7 @@ Connections was made for Women Game Jam 2020 Edition, with the theme "Together e
 
 ## 🕹️ How to play
 
-We've published a demo on itch.io, check it out [here](https://amanditadev.itch.io/connections).
+We've published a demo on itch.io, check it out [here](https://mandys.itch.io/connections).
 
 ## 👋 Authors
 
