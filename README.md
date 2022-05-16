@@ -1,31 +1,27 @@
 <p align="center">
-  <img src="https://img.shields.io/github/repo-size/AmanditaDev/terragaia?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=for-the-badge&logo=unity">
-  <img src="https://img.shields.io/github/license/AmanditaDev/terragaia?style=for-the-badge">
+  <img src="/logo.png" alt="Gabriela e Helena de costas uma para a outra e fluturando no centro nas cores do arco-íris, com o título do jogo ao lado esquerdo e os logos da Unicorn Games e da Women Game Jam Brazil.">
 </p>
 
 <p align="center">
-  <img src="/logo.png" alt="">
+  <img src="https://img.shields.io/github/repo-size/AmandaMartinsDev/connections?style=flat">
+  <img src="https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=flat&logo=unity">
+  <img src="https://img.shields.io/github/license/AmandaMartinsDev/connections?style=flat">
 </p>
 
-## 🌈 Overview
+> We'll tell you stories about people represented by letters of the LGBTQIA+ by putting the you on their point of view.
 
-> We'll tell stories about people represented by letters of the LGBTQIA+ by putting the players on their point of view.
-
-## 📚 About the project
+## 🌈 About the project
 
 Connections was made for Women Game Jam 2020 Edition, with the theme "Together even apart". 
 
-**Genre:** Drama and Point&Click;<br>
-**Style:** Side-View and Pixel Art;<br>
-**Engine:** Unity;<br>
-**Services:** Photon;<br>
-**Platforms:** HTML5;<br>
-**Game modes:** Online multiplayer for 2 players.
+- **Genre:** Online Multiplayer, Drama and Point&Click<br>
+- **Engine:** Unity<br>
+- **Services:** Photon<br>
+- **Platforms:** WebGL<br>
 
 ## 🕹️ How to play
 
-We've published a demo on itch.io, check it out [here](https://mandys.itch.io/connections).
+We've published a demo on itch.io, check it out [here](https://amandamartins.itch.io/connections).
 
 ## 👋 Authors
 
@@ -46,4 +42,4 @@ We've published a demo on itch.io, check it out [here](https://mandys.itch.io/co
 
 ## 📜 License
 
-This project is under license. Click [here](LICENSE.md) for more details.
+This project is under MIT license. Click [here](LICENSE) for more details.
