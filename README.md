@@ -14,10 +14,10 @@
 
 Connections was made for Women Game Jam 2020 Edition, with the theme "Together even apart". 
 
-- **Genre:** Online Multiplayer, Drama and Point&Click<br>
-- **Engine:** Unity<br>
-- **Services:** Photon<br>
-- **Platforms:** WebGL<br>
+- **Genre:** Online Multiplayer, Drama and Point&Click
+- **Engine:** Unity
+- **Services:** Photon
+- **Platforms:** WebGL
 
 ## 🕹️ How to play
 
