@@ -40,6 +40,14 @@ We've published a demo on itch.io, check it out [here](https://amandamartins.itc
 - **Anne Arcoíris** - Composer / Sound Designer
 - **Jimena** - Composer / Sound Designer
 
+## 📋 Issues
+
+Feel free to open an issue if you found a bug or have a suggestion, so we can discuss the best way to improve or fix it.
+
+## 🛠️ Contribute
+
+You're welcome to contribute to this project, just create your pull request, and wait for the review.
+
 ## 📜 License
 
 This project is under MIT license. Click [here](LICENSE) for more details.
