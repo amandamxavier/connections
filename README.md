@@ -44,9 +44,9 @@ We've published a demo on itch.io, check it out [here](https://amandamartins.itc
 
 Feel free to open an issue if you find a bug or have a suggestion, so we can discuss the best way to improve or fix it.
 
-## 🛠️ Contribute
+## 👋 Contributing
 
-You're welcome to contribute to this project, just create your pull request, and wait for the review.
+You're always welcome to contribute to this project, just create your pull request, and wait for the review.
 
 ## 📜 License
 
